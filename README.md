@@ -61,6 +61,8 @@ Uses Tkinter, OpenCV, time, and os modules.
 Uses Tkinter, OpenCV, time, and os modules.
 Whole GUI code made by myself.
 
+(still uses a bit of cli input)
+
 - Waits for user input for the name of the face.
 - Makes a new folder to store data (photo of a face) inside folder "dataset".
 - Captures/snapshots a frame from a video input to take a photo.
@@ -85,6 +87,10 @@ Uses Tkinter module for GUI building.
 Base GUI code generated using [PAGE](http://page.sourceforge.net/).
 
 - Main menu for the program.
+
+# How to run?
+1. Install all the dependencies (a virtual environment is recommended).
+2. Run main_gui/main_menu.py
 
 # Notes
 - HOG detection method is required if program is running on raspberry pi.
