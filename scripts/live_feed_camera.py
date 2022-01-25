@@ -1,6 +1,4 @@
-from queue import Empty
 import cv2
-import os
 
 def testCam(src):
     cam = cv2.VideoCapture(src)
