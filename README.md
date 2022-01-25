@@ -19,7 +19,36 @@ Note:
 - [dlib wheel](https://github.com/shashankx86/dlib_compiled) used.
 
 # What are those files?
-## get_face_data.py
+## scripts/email_notify.py
+Uses smtplib, mime, and datetime modules.
+
+- Function for adding email into the emails list file with the name 'emails.txt' in scripts/files folder.
+- Function for deleteing email from the emails list file.
+- Function for sending an email to every email in the emails list file.
+
+## scripts/encode_faces.py
+Uses imutils, OpenCV, os, argparse, face recognition, and pickle modules.
+
+- Determine detection method (HOG or CNN, default: CNN) for the pickle file which stores face embeddings.
+- Determine what is the name for the pickle file (currently set to model.pickle) and will be stored in the same directory of encode_faces.py.
+
+CNN: more accurate, requires more processing power and memory resources.
+
+HOG: less accurate, requires less processing power and memory resources (use this on raspberry pi).
+
+## scripts/face_recog_main.py
+Uses imutils, OpenCV, time, argparse, face recognition, and pickle modules.
+
+- Determine which cascade file to be used (uses the available cascade files from OpenCV).
+- Determine which pickle file to be used.
+- Shows a video output in a new window which has realtime face detection.
+- Stores the detected faces' name in a file named 'detected_names.txt' in scripts/files folder.
+
+If an unknown face is detected, an "Unknown!" text will appear.
+
+If a known face is detected, the name of that face will appear.
+
+## scripts/get_face_data.py
 Uses Tkinter, OpenCV, time, and os modules.
 
 - Waits for user input for the name of the face.
@@ -28,26 +57,34 @@ Uses Tkinter, OpenCV, time, and os modules.
 - The amount of photos to be captured can be changed (the time it takes to finish will also change accordingly).
 - Photos are stored in 224x224 resolution with BGR color format.
 
-## encode_faces.py
-Uses imutils, OpenCV, os, argparse, face recognition, and pickle modules.
+## scripts/get_face_data.py
+Uses Tkinter, OpenCV, time, and os modules.
+Whole GUI code made by myself.
 
-- Determine detection method (HOG or CNN, default: CNN) for the pickle file which stores face embeddings.
+- Waits for user input for the name of the face.
+- Makes a new folder to store data (photo of a face) inside folder "dataset".
+- Captures/snapshots a frame from a video input to take a photo.
+- The amount of photos to be captured can be changed (the time it takes to finish will also change accordingly).
+- Photos are stored in 224x224 resolution with BGR color format.
 
-CNN: more accurate, requires more processing power and memory resources.
+## scripts/live_feed_camera.py
+Uses OpenCV module.
 
-HOG: less accurate, requires less processing power and memory resources (use this on raspberry pi).
-- Determine what is the name for the pickle file (currently set to model.pickle) and will be stored in the same directory of encode_faces.py.
+- Checks if a camera source is present.
+- Displays video output from a camera device.
 
-## face_recog_main.py
-Uses imutils, OpenCV, time, argparse, face recognition, and pickle modules.
+## scripts/new_mail.py and scripts/new_mail_support.py
+Uses Tkinter module for GUI building.
+Base GUI code generated using [PAGE](http://page.sourceforge.net/).
 
-- Determine which cascade file to be used (uses the available cascade files from OpenCV).
-- Determine which pickle file to be used.
-- Shows a video output in a new window which has realtime face detection.
+- Waits for user input for user email.
+- Can either save or remove email from emails list file 'emails.txt' in the scripts/files folder.
 
-If an unknown face is detected, an "Unknown!" text will appear.
+## main_gui/main_menu.py
+Uses Tkinter module for GUI building.
+Base GUI code generated using [PAGE](http://page.sourceforge.net/).
 
-If a known face is detected, the name of that face will appear.
+- Main menu for the program.
 
 # Notes
 - HOG detection method is required if program is running on raspberry pi.
