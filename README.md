@@ -1,5 +1,5 @@
-# face-detect-pickle
-Face detection program using simple webcam (can also be used for raspberry pi cameras although needs some adjustments).
+# Smart CCTV
+CCTV with face detection program using simple webcam (can also be used for raspberry pi cameras although needs some adjustments).
 
 Made with OpenCV, dlib, and pickle encryption.
 
