@@ -19,6 +19,36 @@ Note:
 - [dlib wheel](https://github.com/shashankx86/dlib_compiled) used.
 
 # How to run?
+1. (optional) Setup a virtual environment.
+```
+python -m venv venv
+```
+2. Activate the virtual environment.
+```
+.\venv\Scripts\Activate.ps1
+```
+3. Install imutils with pip.
+```
+pip install imutils
+```
+4. Install opencv with pip.
+```
+pip install opencv-python
+```
+5. Install dlib from wheel according to python version.
+```
+pip install dlib-19.22.99-cp39-cp39-win_amd64.whl
+```
+6. Install face recognition module with pip.
+```
+pip install face_recognition
+```
+7. Download "main_gui" and "scripts" folder.
+8. Run main_gui/main_menu.py from the root directory.
+```
+python main_gui/main_menu.py
+```
+
 1. Install all the dependencies (a virtual environment is recommended).
 2. Run main_gui/main_menu.py
 
