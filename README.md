@@ -43,7 +43,14 @@ pip install dlib-19.22.99-cp39-cp39-win_amd64.whl
 ```
 pip install face_recognition
 ```
-7. Download "main_gui" and "scripts" folder.
+7. Download "main_gui" and "scripts" folder and put them in the root directory.
+```
+Example directory:
+folder/
+...main_gui/ 
+...scripts/
+...venv/
+```
 8. Run main_gui/main_menu.py from the root directory.
 ```
 python main_gui/main_menu.py
