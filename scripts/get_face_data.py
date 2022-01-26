@@ -8,7 +8,8 @@ import tkinter as tk
 # go back one folder to get to root folder to get to dataset folder
 os.chdir('..')
 # make the dataset folder
-os.mkdir('dataset')
+if os.path.isdir('dataset') is not True:
+    os.mkdir('dataset')
 
 def get_face_snapshot():
     global person_name
