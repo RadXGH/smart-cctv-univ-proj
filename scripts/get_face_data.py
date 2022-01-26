@@ -1,3 +1,4 @@
+from distutils import command
 import cv2
 import os
 import time
@@ -21,16 +22,16 @@ def get_face_snapshot():
     # gui
     while True:
         # instruction in cli window
-        print("[INFO] Input p to start taking photos.")
-        print("[INFO] Input anything other than p to quit.")
-        print("[INFO] Stay still in front of the camera for 5 seconds after inputting p.")
-        print("\n")
-        print("[INFO] Waiting for input....")
+        # print("[INFO] Input p to start taking photos.")
+        # print("[INFO] Input anything other than p to quit.")
+        # print("[INFO] Stay still in front of the camera for 5 seconds after inputting p.")
+        # print("\n")
+        # print("[INFO] Waiting for input....")
 
         # input p into cli to take a photo
-        userInput = input("[INPUT] ")
-        if userInput != 'p':
-            exit()
+        # userInput = input("[INPUT] ")
+        # if userInput != 'p':
+        #     exit()
         
 
         # make new folder for new data
@@ -85,6 +86,8 @@ def get_face_snapshot():
         os.chdir('..')
         break;
 
+    master.destroy()
+
     # encode the whole dataset of faces into a new pickle file
     os.chdir('scripts/')
     os.system('python encode_faces.py --dataset dataset --encodings model.pickle --detection-method hog')
@@ -109,12 +112,11 @@ def addNewName():
         for names in saved_names:
             if (person_name == names):
                 sameFlag = True
+                noteName.configure(text = 'Name has been already added.')
                 break
-        # open and use the camera to get a video feed for taking a photo
+        # open and use the camera to get a video feed for taking a photo and make a new model
         if (sameFlag == False):
             get_face_snapshot()
-    if (sameFlag == False and person_name != ''):
-        master.destroy()
 
 # variable declarations
 person_name = ''
@@ -123,10 +125,15 @@ master = tk.Tk()
 entry_str = tk.StringVar()
 
 master.title('New name')
-tk.Label(master, text = 'Nama lengkap: ').grid(row=0, column=0)
+tk.Label(master, text = 'Full Name: ').grid(row=0, column=0)
 person_name_Panel = tk.Entry(master, textvariable=entry_str, width=30).grid(row=0, column=1, padx=5, pady=5)
 
-tk.Button(master, text = 'Save', width=10, command=addNewName).grid(row=1, column=1, padx=5, pady=5)
-tk.Button(master, text = 'Cancel', width=10, command=master.quit).grid(row=1, column=0, padx=5, pady=5)
+noteName = tk.Label(master, text = 'Enter a name.')
+noteName.grid(row=1, column=0, padx=5, columnspan=2)
+
+noteStayStill = tk.Label(master, text = 'Look towards the camera until this window disappear after saving.').grid(row=2, column=0, columnspan=2)
+
+tk.Button(master, text = 'Save', width=10, command=addNewName).grid(row=3, column=1, padx=5, pady=5)
+tk.Button(master, text = 'Cancel', width=10, command=master.destroy).grid(row=3, column=0, padx=5, pady=5)
 
 tk.mainloop()
