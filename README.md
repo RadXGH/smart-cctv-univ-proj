@@ -49,9 +49,6 @@ pip install face_recognition
 python main_gui/main_menu.py
 ```
 
-1. Install all the dependencies (a virtual environment is recommended).
-2. Run main_gui/main_menu.py
-
 # What are those files?
 ## scripts/email_notify.py
 Uses smtplib, mime, and datetime modules.
