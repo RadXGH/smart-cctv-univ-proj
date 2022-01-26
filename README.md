@@ -45,7 +45,7 @@ pip install face_recognition
 ```
 7. Download "main_gui" and "scripts" folder and put them in the root directory.
 ```
-Example directory:
+Directory tree example:
 folder/
 ...main_gui/ 
 ...scripts/
