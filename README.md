@@ -18,6 +18,10 @@ Note:
 - [face_recognition](https://github.com/ageitgey/face_recognition) module.
 - [dlib wheel](https://github.com/shashankx86/dlib_compiled) used.
 
+# How to run?
+1. Install all the dependencies (a virtual environment is recommended).
+2. Run main_gui/main_menu.py
+
 # What are those files?
 ## scripts/email_notify.py
 Uses smtplib, mime, and datetime modules.
@@ -87,10 +91,6 @@ Uses Tkinter module for GUI building.
 Base GUI code generated using [PAGE](http://page.sourceforge.net/).
 
 - Main menu for the program.
-
-# How to run?
-1. Install all the dependencies (a virtual environment is recommended).
-2. Run main_gui/main_menu.py
 
 # Notes
 - HOG detection method is required if program is running on raspberry pi.
