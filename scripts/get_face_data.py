@@ -45,7 +45,7 @@ def get_face_snapshot():
 
 
         # warm up cam (if not, color can be incorrect)
-        time.sleep(3) # waits for 2 seconds
+        time.sleep(3) # waits for 3 seconds
         # get video input
         ret, img = cam.read()
         # convert video input color into gray for easier face detection
