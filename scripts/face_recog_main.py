@@ -1,4 +1,3 @@
-import email
 from imutils.video import VideoStream
 from imutils.video import FPS
 import face_recognition
