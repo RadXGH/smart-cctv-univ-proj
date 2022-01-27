@@ -137,6 +137,10 @@ def removeName():
             path = os.path.join('dataset/', names)
             if (person_name == names):
                 shutil.rmtree(path)
+                # encode the whole dataset of faces into a new pickle file
+                os.chdir('scripts/')
+                os.system('python encode_faces.py --dataset dataset --encodings model.pickle --detection-method hog')
+                os.chdir('..')
                 break
 
 # variable declarations
