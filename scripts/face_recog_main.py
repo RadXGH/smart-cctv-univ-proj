@@ -124,7 +124,9 @@ while True:
             y = top - 15 if top - 15 > 15 else top + 15
             cv2.putText(frame, name, (left, y), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 255, 0), 2)
 
-            time.sleep(5)
+            # lower fps but more delay for each detected message that will be sent through email
+            # time.sleep(5)
+
             if name != temp:
                 temp = name
                 name = string.capwords(name, sep = None)
@@ -141,7 +143,9 @@ while True:
             y = top - 15 if top - 15 > 15 else top + 15
             cv2.putText(frame, name, (left, y), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 0, 255), 2)
 
-            time.sleep(5)
+            # lower fps but more delay for each detected message that will be sent through email
+            # time.sleep(5)
+
             if name != temp:
                 temp = name
                 name = name + ' at ' + timeNow + '\n'
