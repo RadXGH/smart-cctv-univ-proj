@@ -10,6 +10,7 @@ import cv2
 import os
 from datetime import datetime
 import string
+import tkinter as tk
 
 # import from email_notify.py
 from email_notify import send_email
@@ -34,8 +35,17 @@ args = vars(ap.parse_args())
 
 # load the known faces and embeddings along with OpenCV's Haar cascade for face detection (usually uses haarcascade_frontalface_default.xml)
 print("[INFO] Loading encodings + face detector...")
-data = pickle.loads(open(args["encodings"], "rb").read())
-detector = cv2.CascadeClassifier(cv2.data.haarcascades + args["cascade"])
+
+# checks if model.pickle exist
+if os.path.isfile('model.pickle') is not True:
+    master = tk.Tk()
+    note = tk.Label(master, text="Please run 'Add Face' first.")
+    note.grid(row=0, column=0)
+    tk.mainloop()
+    exit()
+else:
+    data = pickle.loads(open(args["encodings"], "rb").read())
+    detector = cv2.CascadeClassifier(cv2.data.haarcascades + args["cascade"])
 
 # initialize video stream
 print("[INFO] Starting video stream...")
