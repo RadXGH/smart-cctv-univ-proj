@@ -20,7 +20,7 @@ Note:
 
 # How to run?
 NOTE:
-If you're downloading all of the files and folders, please delete the "dataset" folder and "model.pickle" before running the program for a cleaner directory.
+If you're downloading all of the files and folders, please delete the "dataset" folder before running the program for a cleaner directory.
 
 1. (optional) Setup a virtual environment.
 ```
