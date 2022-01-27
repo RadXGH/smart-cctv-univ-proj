@@ -19,6 +19,9 @@ Note:
 - [dlib wheel](https://github.com/shashankx86/dlib_compiled) used.
 
 # How to run?
+NOTE:
+If you're downloading all of the files and folders, please delete the "dataset" folder before running the program.
+
 1. (optional) Setup a virtual environment.
 ```
 python -m venv venv
