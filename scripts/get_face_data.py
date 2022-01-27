@@ -1,4 +1,5 @@
 from distutils import command
+import shutil
 import cv2
 import os
 import time
@@ -121,6 +122,23 @@ def addNewName():
         if (sameFlag == False):
             get_face_snapshot()
 
+def removeName():
+    global person_name
+    # get inputted name
+    person_name = entry_str.get()
+    person_name = person_name.lower()
+    entry_str.set('')
+
+    # checks if name is present
+    if (person_name != ''):
+        # checks if name is already present in dataset
+        saved_names = listdir('dataset/')
+        for names in saved_names:
+            path = os.path.join('dataset/', names)
+            if (person_name == names):
+                shutil.rmtree(path)
+                break
+
 # variable declarations
 person_name = ''
 # create GUI with tkinter
@@ -132,11 +150,12 @@ tk.Label(master, text = 'Full Name: ').grid(row=0, column=0)
 person_name_Panel = tk.Entry(master, textvariable=entry_str, width=30).grid(row=0, column=1, padx=5, pady=5)
 
 noteName = tk.Label(master, text = 'Enter a name.')
-noteName.grid(row=1, column=0, padx=5, columnspan=2)
+noteName.grid(row=1, column=0, padx=5, columnspan=3)
 
-noteStayStill = tk.Label(master, text = 'Look towards the camera until this window disappear after saving.').grid(row=2, column=0, columnspan=2)
+noteStayStill = tk.Label(master, text = 'Look towards the camera until this window disappear after saving.').grid(row=2, column=0, columnspan=3)
 
-tk.Button(master, text = 'Save', width=10, command=addNewName).grid(row=3, column=1, padx=5, pady=5)
+tk.Button(master, text = 'Save', width=10, command=addNewName).grid(row=3, column=2, padx=5, pady=5)
+tk.Button(master, text = 'Remove', width=10, command=removeName).grid(row=3, column=1, padx=5, pady=5)
 tk.Button(master, text = 'Cancel', width=10, command=master.destroy).grid(row=3, column=0, padx=5, pady=5)
 
 tk.mainloop()
