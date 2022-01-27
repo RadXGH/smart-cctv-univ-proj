@@ -44,6 +44,9 @@ def send_email():
 
     with open('files/detected_names.txt', 'r+') as detectedNamesFile:
         detected = detectedNamesFile.read().splitlines()
+    
+    with open('files/detected_names.txt', 'w+') as detectedNamesFile:
+        detectedNamesFile.write('')
 
     # email body
     timeNow = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
